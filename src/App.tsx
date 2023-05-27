@@ -11,7 +11,7 @@ function App() {
           width: 500,
         }}
       >
-        <Carousel>
+        <Carousel autoPlay={5000}>
           <CarouselItem>
             <div
               style={{
@@ -19,7 +19,7 @@ function App() {
                 height: '100%',
               }}
             >
-              1
+              오해인 바보멍청이
             </div>
           </CarouselItem>
           <CarouselItem>
@@ -29,7 +29,7 @@ function App() {
                 height: '100%',
               }}
             >
-              2
+              똥개 말미잘
             </div>
           </CarouselItem>
           <CarouselItem>
