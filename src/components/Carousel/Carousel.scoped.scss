@@ -1,0 +1,34 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow-x: scroll;
+  }
+  .carousel-track {
+    position: absolute;
+    height: 100%;
+    display: flex;
+  }
+  .carousel-wrapper__left-btn,
+  .carousel-wrapper__right-btn {
+    position: absolute;
+    display: flex;
+    font-size: 80px;
+    color: dark;
+    cursor: pointer;
+    padding: 0 20px;
+    align-items: center;
+    height: 100%;
+    top: 0;
+  }
+  .carousel-wrapper__left-btn {
+    left: 0;
+  }
+  .carousel-wrapper__right-btn {
+    right: 0;
+  }
+}
