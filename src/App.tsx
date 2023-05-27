@@ -16,6 +16,7 @@ function App() {
             <div
               style={{
                 backgroundColor: 'red',
+                height: '100%',
               }}
             >
               1
@@ -24,7 +25,8 @@ function App() {
           <CarouselItem>
             <div
               style={{
-                backgroundColor: 'blueㄴ',
+                backgroundColor: 'blue',
+                height: '100%',
               }}
             >
               2
@@ -34,6 +36,7 @@ function App() {
             <div
               style={{
                 backgroundColor: 'green',
+                height: '100%',
               }}
             >
               3

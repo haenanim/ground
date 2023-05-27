@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Carousel.scoped.scss';
 
-export default function Carousel({ children }: any) {
+interface CarouselProps {
+  children: any;
+}
+
+export default function Carousel({ children }: CarouselProps) {
   const $carousel = useRef<HTMLDivElement>(null);
   const [parentWidth, setParentWidth] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -13,6 +17,8 @@ export default function Carousel({ children }: any) {
   useEffect(() => {
     $carousel.current?.scrollTo(parentWidth * (currentPage - 1), 0);
   }, [currentPage]);
+
+  useEffect(() => {});
 
   const goNext = () => {
     console.log('go next');
@@ -33,9 +39,11 @@ export default function Carousel({ children }: any) {
     }
     console.log(currentPage);
   };
+  const goTargetPage = (index: number) => {
+    setCurrentPage(index + 1);
+  };
   return (
     <div className="carousel">
-      {currentPage}
       <div className="carousel-wrapper" ref={$carousel}>
         <div className="carousel-track">
           {children.map((child: any) =>
@@ -45,12 +53,27 @@ export default function Carousel({ children }: any) {
           )}
         </div>
       </div>
+
       <div className="carousel-wrapper__left-btn" onClick={goPrev}>
         {'<'}
       </div>
       <div className="carousel-wrapper__right-btn" onClick={goNext}>
         {'>'}
       </div>
+      <div className="carousel-indicator">
+        {children.map((e: any, i: any) => {
+          return (
+            <div
+              className="carousel-indicator-btn"
+              onClick={() => goTargetPage(i)}
+            >
+              {i + 1 === currentPage ? '◆' : '◇'}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
+
+Carousel.defaultProps = {};
