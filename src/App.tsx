@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import Carousel from './components/Carousel/Carousel';
 import CarouselItem from './components/Carousel/CarouselItem';
+import CustomAlert from './components/CustomAlert/CustomAlert';
 
 function App() {
   return (
@@ -44,6 +45,10 @@ function App() {
           </CarouselItem>
         </Carousel>
       </div>
+      <CustomAlert>
+        <div>asdf</div>
+        <div>asdf</div>
+      </CustomAlert>
     </div>
   );
 }
