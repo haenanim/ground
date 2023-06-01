@@ -1,7 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 import React from 'react';
+import './CustomAlertItem.scoped.scss';
 
-const CustomAlertItem = ({ children }: any) => {
+interface props {
+  children?: React.ReactNode;
+  content: string;
+}
+
+const CustomAlertItem = ({ children, content }: props) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -10,7 +16,11 @@ const CustomAlertItem = ({ children }: any) => {
     }, 2000);
   }, []);
 
-  return <div ref={elementRef}>CustomAlertItem</div>;
+  return (
+    <div className="alert-item" ref={elementRef}>
+      {content}
+    </div>
+  );
 };
 
 export default CustomAlertItem;

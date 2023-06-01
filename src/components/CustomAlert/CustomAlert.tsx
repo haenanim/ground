@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import CustomAlertItem from './CustomAlertItem';
+import './CustomAlert.scoped.scss';
 interface props {
   children: any;
 }
@@ -10,20 +11,14 @@ export default function CustomAlert({ children }: props) {
 
   function addAlert(content: any) {
     const index: any = alerts.length;
-    const a = [
-      ...alerts,
-      // <CustomAlertItem id={index} key={index} ref={$alertElement}>
-      <CustomAlertItem>{content}</CustomAlertItem>,
-    ];
+    const a = [...alerts, <CustomAlertItem content={content} />];
     elementSet.push($alertElement);
     setAlerts(a);
-    // settingInterval();
-    // setAlerts([content, ...alerts]);
   }
 
   return (
-    <div>
-      <div>{alerts}</div>
+    <div className="customAlert-row">
+      {alerts}
       <button
         onClick={() => {
           {
@@ -31,7 +26,9 @@ export default function CustomAlert({ children }: props) {
             console.log(alerts);
           }
         }}
-      ></button>
+      >
+        dasdf
+      </button>
     </div>
   );
 }
