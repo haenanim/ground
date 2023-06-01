@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import Carousel from './components/Carousel/Carousel';
 import CarouselItem from './components/Carousel/CarouselItem';
 import CustomAlert from './components/CustomAlert/CustomAlert';
+import CustomAlertItem from './components/CustomAlert/CustomAlertItem';
 
 function App() {
   return (
