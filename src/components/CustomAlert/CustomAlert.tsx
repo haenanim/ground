@@ -1,31 +1,26 @@
 import React, { useState, useRef } from 'react';
+import CustomAlertItem from './CustomAlertItem';
 interface props {
   children: any;
 }
 export default function CustomAlert({ children }: props) {
   const [alerts, setAlerts] = useState<any>([]);
   const $alertElement = useRef<HTMLDivElement>(null);
-  const [timeoutId, setTimeoutId] = useState<any>(null);
+  const elementSet = [];
 
   function addAlert(content: any) {
     const index: any = alerts.length;
     const a = [
       ...alerts,
-      <div id={index} key={index} ref={$alertElement}>
-        {content}
-      </div>,
+      // <CustomAlertItem id={index} key={index} ref={$alertElement}>
+      <CustomAlertItem>{content}</CustomAlertItem>,
     ];
+    elementSet.push($alertElement);
     setAlerts(a);
-    settingInterval();
+    // settingInterval();
     // setAlerts([content, ...alerts]);
   }
-  function deleteInterval() {
-    $alertElement.current?.remove();
-    clearInterval(timeoutId);
-  }
-  function settingInterval() {
-    setTimeoutId(setInterval(deleteInterval, 2000));
-  }
+
   return (
     <div>
       <div>{alerts}</div>
