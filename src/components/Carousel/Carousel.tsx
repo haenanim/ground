@@ -63,11 +63,11 @@ export default function Carousel({ children, autoPlay }: CarouselProps) {
       <div className="carousel-wrapper" ref={$carousel}>
         <div className="carousel-track">
           {children.map((child: any, idx: number) => (
-            <div key={`carousel-children-${idx}`}>
+            <React.Fragment key={`carousel-children-${idx}`}>
               {React.cloneElement(child, {
                 width: parentWidth,
               })}
-            </div>
+            </React.Fragment>
           ))}
         </div>
       </div>

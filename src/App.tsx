@@ -1,11 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import Carousel from './components/Carousel/Carousel';
 import CarouselItem from './components/Carousel/CarouselItem';
 import CustomAlert from './components/CustomAlert/CustomAlert';
 import CustomButton from './components/CustomButton/CustomButton';
+import CustomButtonProvider from './components/CustomButton/CustomButtonProvider';
 
 function App() {
+  const [btnArray, setBtnArray] = useState([]);
   return (
     <div className="App">
       <div
@@ -50,7 +51,11 @@ function App() {
         <div>asdf</div>
         <div>asdf</div>
       </CustomAlert>
-      <CustomButton></CustomButton>
+      {btnArray}
+      <CustomButtonProvider array={btnArray} setArray={setBtnArray}>
+        <CustomButton>asdf</CustomButton>
+        <CustomButton>dfefs</CustomButton>
+      </CustomButtonProvider>
     </div>
   );
 }
