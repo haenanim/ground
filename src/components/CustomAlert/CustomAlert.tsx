@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import CustomAlertItem from './CustomAlertItem';
 import './CustomAlert.scoped.scss';
 interface props {
@@ -19,7 +19,7 @@ export default function CustomAlert({ children }: props) {
   return (
     <div className="customAlert-row">
       {alerts}
-      <button
+      {/* <button
         onClick={() => {
           {
             addAlert('divelement');
@@ -28,7 +28,7 @@ export default function CustomAlert({ children }: props) {
         }}
       >
         dasdf
-      </button>
+      </button> */}
     </div>
   );
 }

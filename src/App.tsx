@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import Carousel from './components/Carousel/Carousel';
 import CarouselItem from './components/Carousel/CarouselItem';
 import CustomAlert from './components/CustomAlert/CustomAlert';
-import CustomAlertItem from './components/CustomAlert/CustomAlertItem';
+import CustomButton from './components/CustomButton/CustomButton';
 
 function App() {
   return (
@@ -50,6 +50,7 @@ function App() {
         <div>asdf</div>
         <div>asdf</div>
       </CustomAlert>
+      <CustomButton></CustomButton>
     </div>
   );
 }

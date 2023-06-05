@@ -1,0 +1,27 @@
+.custom-btn-base {
+  position: relative;
+  background-color: tomato;
+  width: 50px;
+  height: 25px;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.custom-btn-control {
+  position: absolute;
+  background-color: aliceblue;
+  top: 50%;
+
+  transition-duration: 0.4s;
+  transform: translateY(-50%) translateX(2px);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.custom-btn-control.active {
+  background-color: aqua;
+  transition-duration: 0.4s;
+  transform: translateY(-50%) translateX(28px);
+}

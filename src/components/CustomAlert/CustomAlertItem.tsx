@@ -3,11 +3,10 @@ import React from 'react';
 import './CustomAlertItem.scoped.scss';
 
 interface props {
-  children?: React.ReactNode;
   content: string;
 }
 
-const CustomAlertItem = ({ children, content }: props) => {
+const CustomAlertItem = ({ content }: props) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
