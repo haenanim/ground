@@ -1,57 +1,41 @@
 import React, { useState } from 'react';
 import './Modal.scoped.scss';
 
-interface props {
+interface Props {
   children: any;
 }
-export default function Modal({ children }: props) {
-  const [showModal, setShowModal] = useState(true);
-  const [modalTitle, setModalTitle] = useState('Modal title');
-  const [modalContent, setModalContent] = useState('Modal content');
 
-  const handleModalBodyClick = (event: React.MouseEvent) => {
-    event.stopPropagation();
+export default function Modal({ children }: Props) {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
     <React.Fragment>
-      {children}
-      {showModal ? (
-        <div>
-          <div
-            className="modal-background"
-            onClick={() => {
-              setShowModal(false);
-            }}
-          >
-            <div className="modal-body" onClick={handleModalBodyClick}>
-              <div className="modal-header">
-                <div className="modal-title">{modalTitle}</div>
-                <div
-                  className="modal-close-btn"
-                  onClick={() => {
-                    setShowModal(false);
-                  }}
-                >
-                  X
-                </div>
+      <button onClick={openModal}>Open Modal</button>
+
+      {showModal && (
+        <div className="modal-background">
+          <div className="modal-body">
+            <div className="modal-header">
+              <div className="modal-title">Modal Title</div>
+              <div className="modal-close-btn" onClick={closeModal}>
+                X
               </div>
-              <div className="modal-content">{modalContent}</div>
-              <div className="modal-footer">
-                <button>submit</button>
-                <button
-                  onClick={() => {
-                    setShowModal(false);
-                  }}
-                >
-                  close
-                </button>
-              </div>
+            </div>
+            <div className="modal-content">{children}</div>
+            <div className="modal-footer">
+              <button>Submit</button>
+              <button onClick={closeModal}>Close</button>
             </div>
           </div>
         </div>
-      ) : (
-        <></>
       )}
     </React.Fragment>
   );
