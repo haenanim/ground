@@ -6,6 +6,8 @@ interface props {
 }
 export default function Modal({ children }: props) {
   const [showModal, setShowModal] = useState(true);
+  const [modalTitle, setModalTitle] = useState('Modal title');
+  const [modalContent, setModalContent] = useState('Modal content');
 
   const handleModalBodyClick = (event: React.MouseEvent) => {
     event.stopPropagation();
@@ -19,13 +21,12 @@ export default function Modal({ children }: props) {
           <div
             className="modal-background"
             onClick={() => {
-              alert('백그라운드');
               setShowModal(false);
             }}
           >
             <div className="modal-body" onClick={handleModalBodyClick}>
               <div className="modal-header">
-                <div className="modal-title">해 보시겠습니까</div>
+                <div className="modal-title">{modalTitle}</div>
                 <div
                   className="modal-close-btn"
                   onClick={() => {
@@ -35,10 +36,16 @@ export default function Modal({ children }: props) {
                   X
                 </div>
               </div>
-              <div className="modal-content">바디</div>
+              <div className="modal-content">{modalContent}</div>
               <div className="modal-footer">
                 <button>submit</button>
-                <button>close</button>
+                <button
+                  onClick={() => {
+                    setShowModal(false);
+                  }}
+                >
+                  close
+                </button>
               </div>
             </div>
           </div>
